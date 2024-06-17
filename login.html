@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>login page</h1>
+        <form action="">
+            <input type="email" placeholder="email" id="email">
+            <input type="password" placeholder="password" id="pwd">
+            <input type="submit" value="login" onclick="login(event)">
+            <input type="reset" value="Reset">
+        </form>
+        <!-- <span>Please<a href="login.html">login</a></span> -->
+        <script>
+            function login(event){
+                event.preventDefault();
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("pwd").value;
+
+                console.log(email, password)
+
+                let fname = JSON.parse(localStorage.getItem("fname"))
+                let emailData = JSON.parse(localStorage.getItem("email"))
+                let pwdData = JSON.parse(localStorage.getItem("password"))
+            
+                console.log(emailData,"emailData")
+                console.log(pwdData,"pwdData")
+                console.log(fname,"fname")
+
+                if(email == emailData && password == pwdData){
+                    localStorage.setItem("loginUser",JSON.stringify(fname))
+                    // alert("Hurry You loged in")
+                    window.location.href = "sunnyafterlogin.html"
+                }else{
+                    alert("Not logged in")
+                }
+                // let obj = {
+                //     "name":"hardik"
+                // }
+                
+                // let obj = {
+                //     name:"hardik"
+                // }
+
+            }
+        </script>
+</body>
+</html>
